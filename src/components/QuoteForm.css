@@ -1,0 +1,349 @@
+.quote-section {
+  padding: 8rem 2rem;
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.quote-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.quote-header h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+}
+
+.quote-header p {
+  color: var(--mid-gray);
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #111;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--pure-white);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Form Wrapper */
+.detailed-form-wrapper {
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem;
+  border-radius: 4px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 1);
+}
+
+/* Form Steps */
+.form-step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-step-content h3 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.form-step-content p {
+  color: var(--mid-gray);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Inputs */
+.form-group {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: var(--pure-white);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Step navigation */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 2rem;
+}
+
+.back-btn, .next-btn, .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.back-btn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.next-btn, .submit-btn {
+  background: var(--pure-white);
+  color: #000;
+  border: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.next-btn:hover, .submit-btn:hover {
+  background: var(--light-gray);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.next-btn:disabled, .submit-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Options Step 1 Grid */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.option-card {
+  aspect-ratio: 1/1;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.option-card span {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.option-card:hover {
+  border-color: var(--pure-white);
+  background: #050505;
+}
+
+.option-card.selected {
+  background: var(--pure-white);
+  color: #000;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Option Step 2/3 List */
+.option-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.list-option {
+  padding: 1.5rem 2rem;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.list-option:hover {
+  border-color: var(--pure-white);
+  background: #050505;
+}
+
+.list-option.selected {
+  background: var(--pure-white);
+  color: #000;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Success Card */
+.success-card {
+  max-width: 600px;
+  text-align: center;
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  items-align: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.success-card h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 2rem 0 1.5rem;
+}
+
+.success-card p {
+  color: var(--mid-gray);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.reset-btn {
+  background: transparent;
+  color: var(--pure-white);
+  border: 1px solid var(--pure-white);
+  padding: 1rem 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Status Msg */
+.status-msg {
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status-msg.error {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .detailed-form-wrapper {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .option-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .option-card {
+    aspect-ratio: auto;
+    padding: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .step-nav {
+    flex-direction: column-reverse;
+  }
+}
