@@ -33,19 +33,20 @@
   );
 }
 
-/* Soften the photograph so the heading carries the section. scale()
-   hides the transparent edge blur leaves behind. */
+/* Soften the photograph right down so it reads as texture, not a picture.
+   7px was far too subtle once the image was scaled across a wide banner.
+   scale() hides the transparent edge that blur leaves behind. */
 .page-hero--blur .page-hero__bg {
-  filter: blur(7px) saturate(1.05);
-  transform: scale(1.08);
+  filter: blur(22px) saturate(1.1);
+  transform: scale(1.15);
 }
 
 .page-hero--blur::after {
   background: linear-gradient(
     100deg,
-    rgba(10, 21, 48, 0.82) 0%,
-    rgba(10, 21, 48, 0.7) 55%,
-    rgba(10, 21, 48, 0.5) 100%
+    rgba(10, 21, 48, 0.86) 0%,
+    rgba(10, 21, 48, 0.76) 55%,
+    rgba(10, 21, 48, 0.6) 100%
   );
 }
 

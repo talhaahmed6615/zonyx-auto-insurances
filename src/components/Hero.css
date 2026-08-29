@@ -1,199 +1,224 @@
+/* Full-bleed banner: photograph, scrim, copy over the top — the layout
+   Hastings Direct and Admiral use on their motor landing pages. */
+
 .hero {
   position: relative;
-  background: var(--canvas);
-  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) clamp(3rem, 2rem + 4vw, 5rem);
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(460px, 62vh, 660px);
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(4.5rem, 9vw, 7rem);
+  background: var(--navy-900);
   overflow: hidden;
 }
 
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* keeps the car in frame as the viewport narrows */
+  object-position: 62% 50%;
+  z-index: -2;
+}
+
+/* Left-weighted scrim so the copy stays legible and the car stays visible */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      95deg,
+      rgba(8, 16, 38, 0.94) 0%,
+      rgba(8, 16, 38, 0.86) 32%,
+      rgba(8, 16, 38, 0.55) 60%,
+      rgba(8, 16, 38, 0.28) 100%
+    ),
+    linear-gradient(180deg, rgba(8, 16, 38, 0.35) 0%, rgba(8, 16, 38, 0) 45%);
+}
+
 .hero__inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
+  width: 100%;
 }
 
 .hero__content {
   max-width: 36rem;
 }
 
+.hero .eyebrow {
+  color: var(--gold-400);
+}
+
 .hero__title {
+  color: #fff;
   margin-bottom: 1.15rem;
 }
 
-/* The italic clause is the one flourish the display face earns */
 .hero__title em {
   font-style: italic;
-  color: var(--navy-800);
+  color: var(--gold-400);
 }
 
 .hero__lead {
   font-size: var(--fs-lead);
-  color: var(--ink-2);
-  max-width: 33rem;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 34rem;
 }
 
-/* --- Inline quote starter -------------------------------------------------- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: clamp(1.75rem, 4vw, 2.25rem);
+}
 
-.hero__starter {
-  margin-top: clamp(1.75rem, 4vw, 2.5rem);
-  padding: clamp(1.15rem, 2.5vw, 1.5rem);
+.hero__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.hero__stars {
+  display: inline-flex;
+  gap: 0.12rem;
+  color: var(--gold-400);
+}
+
+/* --- Quote starter bar ----------------------------------------------------- */
+
+.quote-starter {
+  position: relative;
+  z-index: 2;
+  /* rides up over the banner's bottom edge */
+  margin-top: clamp(-4rem, -6vw, -3rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.quote-starter__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.1rem, 2.5vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
-.hero__starter-label {
-  font-size: var(--fs-sm);
+.quote-starter__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--ink);
-  margin-bottom: 0.85rem;
+  line-height: 1.2;
 }
 
-.hero__vehicles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) auto;
+.quote-starter__note {
+  margin-top: 0.2rem;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+}
+
+.quote-starter__options {
+  display: flex;
+  align-items: stretch;
   gap: 0.6rem;
+  flex-shrink: 0;
 }
 
-.hero__vehicle {
+.quote-starter__option {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.75rem 0.5rem;
-  min-height: 76px;
+  gap: 0.3rem;
+  min-width: 84px;
+  min-height: 62px;
+  padding: 0.5rem 0.85rem;
   border: 1px solid var(--line-strong);
   border-radius: var(--r-md);
   background: var(--surface);
   color: var(--navy-800);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   transition: border-color 0.18s var(--ease), background-color 0.18s var(--ease),
     color 0.18s var(--ease);
 }
 
-.hero__vehicle:hover {
+.quote-starter__option:hover {
   border-color: var(--teal-600);
   background: var(--teal-100);
   color: var(--teal-700);
 }
 
-.hero__go {
-  min-height: 76px;
-  padding-inline: 1.4rem;
+.quote-starter__go {
+  min-height: 62px;
+  padding-inline: 1.35rem;
   white-space: nowrap;
-}
-
-.hero__starter-note {
-  margin-top: 0.75rem;
-  font-size: var(--fs-xs);
-  color: var(--ink-3);
-}
-
-/* --- Photograph ------------------------------------------------------------ */
-
-.hero__media {
-  position: relative;
-  margin: 0;
-  border-radius: var(--r-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  /* portrait crop balances the tall copy column */
-  aspect-ratio: 4 / 5;
-  background: var(--surface-3);
-}
-
-.hero__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero__badge {
-  position: absolute;
-  left: clamp(0.75rem, 2vw, 1.15rem);
-  right: clamp(0.75rem, 2vw, 1.15rem);
-  bottom: clamp(0.75rem, 2vw, 1.15rem);
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: var(--r-md);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--shadow-sm);
-  text-align: left;
-}
-
-@supports (backdrop-filter: blur(8px)) {
-  .hero__badge {
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(10px);
-  }
-}
-
-.hero__badge-stars {
-  display: inline-flex;
-  gap: 0.1rem;
-  flex-shrink: 0;
-  color: var(--gold-500);
-}
-
-.hero__badge-text {
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--ink);
 }
 
 /* --- Breakpoints ----------------------------------------------------------- */
 
-@media (max-width: 980px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
-    gap: 2.25rem;
+@media (max-width: 900px) {
+  .hero {
+    min-height: clamp(440px, 58vh, 560px);
   }
 
-  .hero__content {
-    max-width: 42rem;
-    order: 1;
+  .hero__bg {
+    object-position: 68% 50%;
   }
 
-  .hero__media {
-    order: 2;
-    aspect-ratio: 16 / 10;
-    max-height: 380px;
+  /* Copy sits over the full width, so darken evenly rather than left-to-right */
+  .hero::after {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 16, 38, 0.86) 0%,
+      rgba(8, 16, 38, 0.78) 55%,
+      rgba(8, 16, 38, 0.9) 100%
+    );
   }
-}
 
-@media (max-width: 620px) {
-  .hero__vehicles {
+  .quote-starter__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .quote-starter__options {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
   }
 
-  .hero__go {
+  .quote-starter__go {
     grid-column: 1 / -1;
     min-height: 52px;
   }
+}
 
-  .hero__vehicle {
-    min-height: 68px;
+@media (max-width: 560px) {
+  .hero__actions .btn {
+    width: 100%;
   }
 }
 
 @media (max-width: 380px) {
-  .hero__vehicles {
+  .quote-starter__options {
     grid-template-columns: 1fr;
   }
 
-  .hero__vehicle {
+  .quote-starter__option {
     flex-direction: row;
     justify-content: flex-start;
     gap: 0.7rem;
-    min-height: 52px;
-    padding: 0.65rem 1rem;
+    min-height: 50px;
   }
 }

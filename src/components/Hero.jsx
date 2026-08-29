@@ -1,4 +1,5 @@
-import { Car, Bike, Truck, ArrowRight, Star } from 'lucide-react';
+import { Car, Bike, Truck, ArrowRight, Phone, Star } from 'lucide-react';
+import { CONTACT } from '../siteConfig';
 import './Hero.css';
 
 const VEHICLES = [
@@ -9,75 +10,93 @@ const VEHICLES = [
 
 const Hero = ({ onStartQuote }) => {
   return (
-    <section className="hero">
-      <div className="hero__inner container-wide">
-        <div className="hero__content">
-          <p className="eyebrow">Car, bike &amp; van insurance</p>
+    <>
+      <section className="hero">
+        <img
+          className="hero__bg"
+          src="/images/hero-banner-1800.jpg"
+          srcSet="
+            /images/hero-banner-1200.jpg 1200w,
+            /images/hero-banner-1800.jpg 1800w,
+            /images/hero-banner-2400.jpg 2400w"
+          sizes="100vw"
+          width="2400"
+          height="1000"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+        />
 
-          <h1 className="hero__title">
-            Cover that understands
-            <em> how you actually drive</em>
-          </h1>
+        <div className="hero__inner container-wide">
+          <div className="hero__content">
+            <p className="eyebrow">Car, bike &amp; van insurance</p>
 
-          <p className="hero__lead">
-            School run, daily commute or a full day of deliveries — we match the
-            policy to the way the vehicle is really used, and give you a
-            specialist who picks up the phone.
-          </p>
+            <h1 className="hero__title">
+              Cover that understands
+              <em> how you actually drive</em>
+            </h1>
 
-          <div className="hero__starter">
-            <p className="hero__starter-label">What are we covering?</p>
+            <p className="hero__lead">
+              School run, daily commute or a full day of deliveries — we match the
+              policy to the way the vehicle is really used, and give you a
+              specialist who picks up the phone.
+            </p>
 
-            <div className="hero__vehicles">
-              {VEHICLES.map(({ value, Icon }) => (
-                <button
-                  key={value}
-                  type="button"
-                  className="hero__vehicle"
-                  onClick={() => onStartQuote?.(value)}
-                >
-                  <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
-                  <span>{value}</span>
-                </button>
-              ))}
-
-              <a href="#quote" className="btn btn-gold hero__go">
-                Get my price
+            <div className="hero__actions">
+              <a href="#quote" className="btn btn-gold btn-lg">
+                Get a quote
                 <ArrowRight size={18} aria-hidden="true" />
+              </a>
+              <a href={CONTACT.phoneHref} className="btn btn-ghost-light btn-lg">
+                <Phone size={17} aria-hidden="true" />
+                {CONTACT.phone}
               </a>
             </div>
 
-            <p className="hero__starter-note">
-              About three minutes. No obligation to buy.
+            <p className="hero__rating">
+              <span className="hero__stars" aria-hidden="true">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
+                ))}
+              </span>
+              Rated 5 out of 5 by the clients who have reviewed us
             </p>
           </div>
         </div>
+      </section>
 
-        <figure className="hero__media">
-          <img
-            src="/images/hero-drive-1400.jpg"
-            srcSet="/images/hero-drive-900.jpg 900w, /images/hero-drive-1400.jpg 1400w"
-            sizes="(max-width: 980px) 100vw, 48vw"
-            width="1400"
-            height="1750"
-            alt="A car on a coastal road at golden hour"
-            fetchPriority="high"
-            decoding="async"
-          />
+      {/* Quote starter straddles the bottom edge of the banner */}
+      <div className="quote-starter">
+        <div className="container quote-starter__inner">
+          <div className="quote-starter__copy">
+            <p className="quote-starter__title">Start your quote</p>
+            <p className="quote-starter__note">
+              About three minutes. No obligation to buy.
+            </p>
+          </div>
 
-          <figcaption className="hero__badge">
-            <span className="hero__badge-stars" aria-hidden="true">
-              {Array.from({ length: 5 }, (_, i) => (
-                <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
-              ))}
-            </span>
-            <span className="hero__badge-text">
-              Rated 5 out of 5 by the clients who have reviewed us
-            </span>
-          </figcaption>
-        </figure>
+          <div className="quote-starter__options">
+            {VEHICLES.map(({ value, Icon }) => (
+              <button
+                key={value}
+                type="button"
+                className="quote-starter__option"
+                onClick={() => onStartQuote?.(value)}
+              >
+                <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
+                <span>{value}</span>
+              </button>
+            ))}
+
+            <a href="#quote" className="btn btn-primary quote-starter__go">
+              Get my price
+              <ArrowRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
       </div>
-    </section>
+    </>
   );
 };
 

@@ -9,7 +9,7 @@ const Contact = () => (
       eyebrow="Get in touch"
       title="Contact us"
       intro="Call, email or start a quote online. A specialist will pick it up and come back to you the same working day where possible."
-      image="/images/contact-bg-1600.jpg"
+      image="/images/contact-bg-1200.jpg"
       blur
     />
 
