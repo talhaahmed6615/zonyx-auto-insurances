@@ -33,23 +33,6 @@
   );
 }
 
-/* Soften the photograph right down so it reads as texture, not a picture.
-   7px was far too subtle once the image was scaled across a wide banner.
-   scale() hides the transparent edge that blur leaves behind. */
-.page-hero--blur .page-hero__bg {
-  filter: blur(22px) saturate(1.1);
-  transform: scale(1.15);
-}
-
-.page-hero--blur::after {
-  background: linear-gradient(
-    100deg,
-    rgba(10, 21, 48, 0.86) 0%,
-    rgba(10, 21, 48, 0.76) 55%,
-    rgba(10, 21, 48, 0.6) 100%
-  );
-}
-
 .page-hero__inner {
   position: relative;
 }

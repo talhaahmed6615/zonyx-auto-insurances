@@ -9,7 +9,7 @@ so the originals can be traced or replaced.
 | --- | --- | --- |
 | hero-banner-*.jpg | photo-1770847816156-a4041d979580 | Car on a coastal road (full-bleed hero banner) |
 | broker-keys-*.jpg | photo-1727893512947-8bdc773ceb02 | Car keys being handed over |
-| contact-bg-1200.jpg | photo-1601929862217-f1bf94503333 | Car at golden hour (blurred backdrop) |
+| contact-bg-1800.jpg | photo-1601929862217-f1bf94503333 | Car at golden hour (Contact banner) |
 | road-winding-*.jpg | photo-1635965453398-121ed3ea7c24 | Car on a winding road |
 | van-road-*.jpg | photo-1614976523626-d598aafd4fda | White van on a wet road |
 

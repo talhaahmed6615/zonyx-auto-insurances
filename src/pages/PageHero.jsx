@@ -1,15 +1,8 @@
 import './Page.css';
 
-/**
- * Navy banner used at the top of every non-home page.
- *
- *  - `image` optional photograph behind the copy
- *  - `blur`  softens that photograph so the heading stays the focus
- */
-const PageHero = ({ eyebrow, title, intro, image, imageAlt = '', blur = false }) => (
-  <section
-    className={`page-hero ${image ? 'page-hero--photo' : ''} ${blur ? 'page-hero--blur' : ''}`}
-  >
+/** Navy banner used at the top of every non-home page. */
+const PageHero = ({ eyebrow, title, intro, image, imageAlt = '' }) => (
+  <section className={`page-hero ${image ? 'page-hero--photo' : ''}`}>
     {image && (
       <img
         className="page-hero__bg"

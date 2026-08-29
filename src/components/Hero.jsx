@@ -38,8 +38,7 @@ const Hero = ({ onStartQuote }) => {
             </h1>
 
             <p className="hero__lead">
-              School run, daily commute or a full day of deliveries — we match the
-              policy to the way the vehicle is really used, and give you a
+              Policies matched to how the vehicle is really used, with a
               specialist who picks up the phone.
             </p>
 
@@ -60,7 +59,10 @@ const Hero = ({ onStartQuote }) => {
                   <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
                 ))}
               </span>
-              Rated 5 out of 5 by the clients who have reviewed us
+              Rated 5 out of 5
+              <span className="hero__rating-tail">
+                {' '}by the clients who have reviewed us
+              </span>
             </p>
           </div>
         </div>
