@@ -1,0 +1,162 @@
+.levels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  align-items: stretch;
+}
+
+.level {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.35rem, 2.5vw, 1.9rem);
+}
+
+.level--featured {
+  border-color: var(--navy-800);
+  box-shadow: var(--shadow-md);
+}
+
+.level__flag {
+  position: absolute;
+  top: 0;
+  right: clamp(1.35rem, 2.5vw, 1.9rem);
+  translate: 0 -50%;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--r-pill);
+  background: var(--gold-500);
+  color: var(--navy-900);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.level__name {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.level__summary {
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+  margin-bottom: 1.25rem;
+  min-height: 2.9em;
+}
+
+.level__features {
+  display: grid;
+  gap: 0.7rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--line);
+  margin-bottom: 1.5rem;
+}
+
+.level__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.level__features .is-included { color: var(--ink); }
+.level__features .is-excluded { color: var(--ink-3); }
+
+.level__marker {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin-top: 0.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.is-included .level__marker {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.is-excluded .level__marker {
+  background: var(--surface-3);
+  color: var(--ink-3);
+}
+
+.level__cta {
+  margin-top: auto;
+}
+
+/* --- Optional extras ------------------------------------------------------ */
+
+.extras {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.extras__title {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.extras__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.extras__item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.extras__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-md);
+  background: var(--gold-100);
+  color: var(--gold-700);
+}
+
+.extras__item h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.extras__item p {
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.cover-note {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  max-width: 62ch;
+}
+
+/* --- Breakpoints ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .levels {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .level__summary {
+    min-height: 0;
+  }
+
+  .level__flag {
+    right: auto;
+    left: clamp(1.35rem, 2.5vw, 1.9rem);
+  }
+}

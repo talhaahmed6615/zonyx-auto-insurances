@@ -9,9 +9,9 @@ import './Logo.css';
  *
  *  - `size`      width of the shield in px (height is 1.25x)
  *  - `showText`  render the ZONYX / AUTO INSURANCE wordmark beside the shield
- *  - `stacked`   place the wordmark under the shield instead of beside it
+ *  - `onDark`    invert the wordmark for navy backgrounds
  */
-const Logo = ({ className = '', size = 48, showText = true, stacked = false }) => {
+const Logo = ({ className = '', size = 40, showText = true, onDark = false }) => {
   // useId keeps gradient ids unique — the logo renders in the header, hero and
   // footer at once, and duplicate SVG ids make every instance share one paint.
   const uid = useId().replace(/:/g, '');
@@ -21,7 +21,7 @@ const Logo = ({ className = '', size = 48, showText = true, stacked = false }) =
 
   return (
     <div
-      className={`zonyx-logo ${stacked ? 'is-stacked' : ''} ${className}`}
+      className={`zonyx-logo ${onDark ? 'zonyx-logo--on-dark' : ''} ${className}`}
       style={{ '--logo-size': `${size}px` }}
     >
       <div className="zonyx-logo__mark">

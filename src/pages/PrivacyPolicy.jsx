@@ -1,14 +1,17 @@
-import './About.css';
+import PageHero from './PageHero';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="page-container fade-in visible">
-      <div className="page-header">
-        <h1>Privacy <span className="gold-text">Policy</span></h1>
-        <p>Your data security and privacy are our top priorities.</p>
-      </div>
-      <div className="page-content">
-        <div className="about-text">
+    <>
+      <PageHero
+        eyebrow="Legal"
+        title="Privacy policy"
+        intro="How Zonyx collects, uses and protects the personal information you share with us."
+      />
+
+      <div className="page-body">
+        <div className="container">
+          <div className="prose">
           <h2>Data Protection & Privacy</h2>
           <p>At Zonyx Auto Insurance, we are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our privacy practices, please contact us at zonyxautoinsurance@gmail.com.</p>
           
@@ -39,9 +42,10 @@ const PrivacyPolicy = () => {
           <h3>Contact Us</h3>
           <p><strong>Email:</strong> zonyxautoinsurance@gmail.com</p>
           <p><strong>Phone:</strong> +44 7932 578446</p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

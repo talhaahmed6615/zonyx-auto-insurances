@@ -1,0 +1,74 @@
+.cta-band {
+  background: var(--navy-900);
+  color: rgba(255, 255, 255, 0.75);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.cta-band__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.cta-band__copy h2 {
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.cta-band__copy p {
+  max-width: 46ch;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.cta-band__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cta-band__contacts a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  overflow-wrap: anywhere;
+  transition: color 0.18s var(--ease);
+}
+
+.cta-band__contacts a:hover { color: var(--gold-400); }
+
+.cta-band__contacts svg {
+  flex-shrink: 0;
+  color: var(--gold-400);
+}
+
+.cta-band__hours {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 860px) {
+  .cta-band__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band__actions {
+    align-items: stretch;
+  }
+
+  .cta-band__actions .btn { width: 100%; }
+}
+
+@media (pointer: coarse) {
+  .cta-band__contacts a { padding-block: 0.4rem; }
+}

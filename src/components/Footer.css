@@ -1,147 +1,116 @@
-.footer {
-  background-color: #000;
-  color: var(--pure-white);
-  padding: clamp(3rem, 7vw, 6rem) var(--gutter) clamp(1.5rem, 3vw, 2rem);
+.site-footer {
+  background: var(--navy-900);
+  color: rgba(255, 255, 255, 0.65);
+  padding-block: clamp(2.75rem, 5vw, 4.5rem) clamp(1.5rem, 3vw, 2rem);
   padding-bottom: max(clamp(1.5rem, 3vw, 2rem), env(safe-area-inset-bottom));
-  position: relative;
-  z-index: 2;
-  border-top: 1px solid var(--accent-line);
+  border-top: 3px solid var(--gold-500);
 }
 
-.footer-container {
-  max-width: var(--container);
-  margin-inline: auto;
+.site-footer__top {
   display: grid;
-  grid-template-columns: minmax(240px, 1.2fr) 2fr;
-  gap: clamp(2.5rem, 6vw, 5rem);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  padding-bottom: clamp(2rem, 5vw, 4rem);
-  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  grid-template-columns: minmax(260px, 1fr) 2fr;
+  gap: clamp(2.25rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
 }
 
-.footer-brand {
-  min-width: 0;
-}
-
-.footer-logo {
+.site-footer__brand > a {
   display: inline-block;
 }
 
-.footer-desc {
-  margin-top: 1.5rem;
+.site-footer__blurb {
+  margin-top: 1.25rem;
+  max-width: 34ch;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.8;
-  max-width: 40ch;
-  font-size: var(--fs-body);
 }
 
-.footer-contact {
-  margin-top: 1.5rem;
+.site-footer__contact {
+  margin-top: 1.35rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.4rem;
+  font-size: var(--fs-sm);
 }
 
-.footer-contact a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--text-muted);
-  font-size: var(--fs-body);
-  font-weight: 500;
-  transition: color 0.3s ease;
+.site-footer__contact a {
+  color: rgba(255, 255, 255, 0.85);
   overflow-wrap: anywhere;
+  transition: color 0.18s var(--ease);
 }
 
-.footer-contact a:hover {
-  color: var(--gold-bright);
-}
+.site-footer__contact a:hover { color: var(--gold-400); }
 
-.footer-contact svg {
-  flex-shrink: 0;
-  color: var(--gold);
+.site-footer__hours {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: var(--fs-xs);
 }
 
 /* --- Link columns --------------------------------------------------------- */
 
-.footer-links {
+.site-footer__nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
   gap: clamp(1.75rem, 4vw, 2.5rem);
 }
 
-.link-column h2 {
-  color: var(--pure-white);
-  font-size: 1rem;
-  margin-bottom: 1.25rem;
+.site-footer__nav h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 800;
+  color: var(--gold-400);
+  margin-bottom: 1rem;
 }
 
-.link-column ul {
+.site-footer__nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.site-footer__nav a {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.18s var(--ease);
+}
+
+.site-footer__nav a:hover { color: #fff; }
+
+/* --- Bottom --------------------------------------------------------------- */
+
+.site-footer__bottom {
+  padding-top: clamp(1.25rem, 3vw, 1.75rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.link-column a {
-  color: var(--mid-gray);
-  font-size: var(--fs-body);
-  transition: color 0.3s ease;
-  display: inline-block;
+.site-footer__regulatory,
+.site-footer__copyright {
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.45);
 }
-
-.link-column a:hover {
-  color: var(--gold-bright);
-}
-
-/* --- Bottom bar ----------------------------------------------------------- */
-
-.footer-bottom {
-  max-width: var(--container);
-  margin-inline: auto;
-  padding-top: clamp(1.25rem, 3vw, 2rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  text-align: center;
-  color: var(--mid-gray);
-  font-size: var(--fs-small);
-}
-
-/* --- Breakpoints ---------------------------------------------------------- */
 
 @media (max-width: 860px) {
-  .footer-container {
+  .site-footer__top {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.25rem;
   }
 }
 
 @media (max-width: 420px) {
-  .footer-links {
+  .site-footer__nav {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 1.6rem;
   }
 }
 
-/* --- Touch ergonomics -----------------------------------------------------
-   Footer links sat at ~24px tall. On touch pointers they get vertical
-   padding (tighter list gap keeps the block the same overall height). */
-
 @media (pointer: coarse) {
-  .link-column ul {
-    gap: 0.1rem;
-  }
-
-  .link-column a {
-    padding-block: 0.6rem;
-  }
-
-  .footer-contact {
-    gap: 0.1rem;
-  }
-
-  .footer-contact a {
-    padding-block: 0.6rem;
-  }
+  .site-footer__nav ul { gap: 0.1rem; }
+  .site-footer__nav a { display: inline-block; padding-block: 0.55rem; }
+  .site-footer__contact { gap: 0.05rem; }
+  .site-footer__contact a { display: inline-block; padding-block: 0.5rem; }
 }

@@ -127,11 +127,25 @@ const validateStep = (step, data) => {
   return errors;
 };
 
-const QuoteForm = () => {
+const QuoteForm = ({ startVehicle = null }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(''); // '' | 'sending' | 'success' | 'error'
+
+  // The hero's vehicle picker seeds step 1 and drops the user straight into
+  // step 2. Adjusted during render rather than in an effect so there is no
+  // extra commit and no flash of the wrong step.
+  const [lastStartVehicle, setLastStartVehicle] = useState(startVehicle);
+  if (startVehicle !== lastStartVehicle) {
+    setLastStartVehicle(startVehicle);
+    if (startVehicle) {
+      setFormData((prev) => ({ ...prev, vehicleType: startVehicle }));
+      setErrors({});
+      setStep(2);
+      setStatus('');
+    }
+  }
 
   const setField = (name, value) => {
     setFormData((prev) => {
@@ -489,8 +503,8 @@ const QuoteForm = () => {
 
   if (status === 'success') {
     return (
-      <section id="quote" className="quote-section">
-        <div className="success-card">
+      <section id="quote" className="section quote-section">
+        <div className="container success-card">
           <CheckCircle2 size={72} strokeWidth={1.25} aria-hidden="true" />
           <h2>Lead Received</h2>
           <p>
@@ -507,13 +521,14 @@ const QuoteForm = () => {
   }
 
   return (
-    <section id="quote" className="quote-section">
-      <div className="quote-container">
-        <div className="quote-header fade-in">
-          <h2>Insurance Quote Request</h2>
+    <section id="quote" className="section quote-section">
+      <div className="container quote-container">
+        <div className="quote-header">
+          <p className="eyebrow">Get a quote</p>
+          <h2>Tell us about you and the vehicle</h2>
           <p>
-            Complete our quick 7-step form to get precise insurance rates tailored to
-            your specific vehicle and history.
+            Seven short steps, around three minutes. A specialist reviews every
+            answer before calling you back.
           </p>
 
           <div className="progress-bar-container">
@@ -531,7 +546,7 @@ const QuoteForm = () => {
           </div>
         </div>
 
-        <div className="detailed-form-wrapper fade-in">
+        <div className="detailed-form-wrapper">
           <form onSubmit={handleSubmit} noValidate>
             {renderStep()}
           </form>

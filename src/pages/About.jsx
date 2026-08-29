@@ -1,125 +1,82 @@
 import { Link } from 'react-router-dom';
-import { UserRound, FileText, Handshake, Check, ArrowRight } from 'lucide-react';
-import './About.css';
+import { ArrowRight } from 'lucide-react';
+import PageHero from './PageHero';
+import WorkProcess from '../components/WorkProcess';
+import TrustBar from '../components/TrustBar';
+import CtaBand from '../components/CtaBand';
 
-const HIGHLIGHTS = [
-  { number: '25+', text: 'Years of Excellence' },
-  { number: '5M+', text: 'Trusted Drivers' },
-  { number: '24/7', text: 'Expert Support' },
-];
-
-const BENEFITS = [
-  { title: 'Premium Protection', body: 'Coverage tailored to your exact lifestyle and needs' },
-  { title: '24/7 Support', body: 'Dedicated agents ready to assist you anytime' },
-  { title: 'Smart Claims', body: 'Lightning-fast resolutions with advanced technology' },
-];
-
-const STEPS = [
+const VALUES = [
   {
-    number: '01',
-    title: 'Connect with an Agent',
-    body: 'Get personalized guidance from our expert insurance specialists who understand your unique needs',
-    Icon: UserRound,
+    title: 'Get the class of use right',
+    body: 'The wrong class of use is the quickest way to have a claim declined. We confirm it in writing before cover starts.',
   },
   {
-    number: '02',
-    title: 'Select Best Policy',
-    body: 'Choose from our comprehensive range of coverage options designed for every driver',
-    Icon: FileText,
+    title: 'Explain before you buy',
+    body: 'Excesses, exclusions and endorsements get talked through in plain English, not buried in a PDF you never open.',
   },
   {
-    number: '03',
-    title: 'Review and Purchase',
-    body: 'Complete your coverage with confidence and instant peace of mind',
-    Icon: Handshake,
+    title: 'Stay reachable',
+    body: 'The person who arranged your policy is the person who answers when something changes or goes wrong.',
   },
 ];
 
-const About = () => {
-  return (
-    <div className="page-container fade-in visible">
-      <div className="page-header">
-        <h1>About <span className="gold-text">Zonyx</span></h1>
-        <p>Premium auto insurance backed by decades of trust and cutting-edge technology.</p>
-      </div>
+const About = () => (
+  <>
+    <PageHero
+      eyebrow="About us"
+      title="Motor insurance specialists, not a comparison table"
+      intro="Zonyx arranges car, bike and van cover for UK drivers — including the working drivers most comparison sites struggle to price properly."
+    />
 
-      <div className="page-content">
-        <div className="about-hero">
-          <div className="hero-left">
-            <h2>Our Mission</h2>
-            <p>
-              At Zonyx Auto Insurance, we believe that every vehicle and every driver
-              deserves uncompromising protection. We blend cutting-edge technology with
-              industry-leading coverage to deliver peace of mind on every journey.
-            </p>
-            <ul className="mission-highlights">
-              {HIGHLIGHTS.map(({ number, text }) => (
-                <li className="highlight-item" key={text}>
-                  <span className="highlight-number">{number}</span>
-                  <span className="highlight-text">{text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <div className="page-body">
+      <div className="container about-split">
+        <div className="prose">
+          <h2>What we do</h2>
+          <p>
+            We are a motor insurance broker. That means we sit between you and
+            the insurers: you tell us about the vehicle and how you use it, and
+            we find cover that actually matches, at a level you are happy with.
+          </p>
+          <p>
+            Most of our work is with drivers whose circumstances do not fit a
+            standard form — couriers and delivery drivers, private hire drivers,
+            people on provisional or overseas licences, and drivers with claims
+            history. Those cases need a conversation, not a dropdown.
+          </p>
 
-          <div className="hero-divider" aria-hidden="true"></div>
-
-          <div className="hero-right">
-            <h2>Why Choose Us?</h2>
-            <ul className="benefits-list">
-              {BENEFITS.map(({ title, body }) => (
-                <li className="benefit-item" key={title}>
-                  <span className="benefit-icon" aria-hidden="true">
-                    <Check size={16} strokeWidth={3} />
-                  </span>
-                  <span>
-                    <span className="benefit-title">{title}</span>
-                    <span className="benefit-body">{body}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h2>How we are paid</h2>
+          <p>
+            We are paid commission by the insurer when a policy is placed, and in
+            some cases a broker fee, which is always shown to you before you
+            commit. You will never be charged for a quote or for advice.
+          </p>
         </div>
 
-        {/* about- prefixed so these rules cannot leak onto the home page's
-            WorkProcess section, which used the same generic class names. */}
-        <div className="about-process">
-          <div className="about-process__header">
-            <h2>Our Work Process</h2>
-            <p className="about-process__subtitle">
-              Three Simple Steps to Your Complete Coverage
-            </p>
+        <div>
+          <h2>How we work</h2>
+          <div className="about-values" style={{ marginTop: '1.25rem' }}>
+            {VALUES.map(({ title, body }) => (
+              <div className="value-item" key={title}>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            ))}
           </div>
 
-          <ol className="about-process__steps">
-            {STEPS.map(({ number, title, body, Icon }) => (
-              <li className="about-step" key={number}>
-                <span className="about-step__icon">
-                  <Icon size={40} strokeWidth={1.4} aria-hidden="true" />
-                </span>
-                <span className="about-step__number" aria-hidden="true">{number}</span>
-                <h3>
-                  <span className="visually-hidden">Step {number}: </span>
-                  {title}
-                </h3>
-                <p>{body}</p>
-              </li>
-            ))}
-          </ol>
-
-          <div className="about-cta">
+          <div className="page-actions">
             <Link to="/#quote" className="btn btn-primary">
-              Get your quote <ArrowRight size={20} aria-hidden="true" />
+              Start a quote <ArrowRight size={17} aria-hidden="true" />
             </Link>
-            <Link to="/contact" className="btn btn-ghost">
-              Talk to an agent
-            </Link>
+            <Link to="/contact" className="btn btn-outline">Talk to us</Link>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+
+    <TrustBar />
+    <WorkProcess />
+    <CtaBand />
+  </>
+);
 
 export default About;

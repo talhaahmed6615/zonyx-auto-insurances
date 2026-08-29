@@ -1,14 +1,17 @@
-import './About.css';
+import PageHero from './PageHero';
 
 const CookiePolicy = () => {
   return (
-    <div className="page-container fade-in visible">
-      <div className="page-header">
-        <h1>Cookie <span className="gold-text">Policy</span></h1>
-        <p>Understanding how we use cookies to improve your experience.</p>
-      </div>
-      <div className="page-content">
-        <div className="about-text">
+    <>
+      <PageHero
+        eyebrow="Legal"
+        title="Cookie policy"
+        intro="How we use cookies and similar technologies on this website."
+      />
+
+      <div className="page-body">
+        <div className="container">
+          <div className="prose">
           <h2>What Are Cookies?</h2>
           <p>Cookies are small pieces of data stored on your browser or device. They help us remember information about your visit to Zonyx Auto Insurance, such as your preferences and login information.</p>
 
@@ -46,9 +49,10 @@ const CookiePolicy = () => {
 
           <h3>Contact Us</h3>
           <p>If you have any questions about our cookie policy, please contact us at zonyxautoinsurance@gmail.com or call +44 7932 578446.</p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

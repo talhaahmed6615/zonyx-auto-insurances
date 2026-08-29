@@ -1,14 +1,17 @@
-import './About.css';
+import PageHero from './PageHero';
 
 const TermsOfService = () => {
   return (
-    <div className="page-container fade-in visible">
-      <div className="page-header">
-        <h1>Terms of <span className="gold-text">Service</span></h1>
-        <p>Please read these terms carefully before using our services.</p>
-      </div>
-      <div className="page-content">
-        <div className="about-text">
+    <>
+      <PageHero
+        eyebrow="Legal"
+        title="Terms of service"
+        intro="The terms that apply when you use the Zonyx Auto Insurance website."
+      />
+
+      <div className="page-body">
+        <div className="container">
+          <div className="prose">
           <h2>Agreement to Terms</h2>
           <p>By accessing and using Zonyx Auto Insurance website and services, you accept and agree to be bound by the terms and provision of this agreement.</p>
 
@@ -39,9 +42,10 @@ const TermsOfService = () => {
 
           <h3>Governing Law</h3>
           <p>These terms and conditions are governed by and construed in accordance with the laws of the United Kingdom, and you irrevocably submit to the exclusive jurisdiction of the courts in London.</p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

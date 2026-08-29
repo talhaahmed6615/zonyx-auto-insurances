@@ -1,52 +1,41 @@
-import { UserRound, FileText, Handshake } from 'lucide-react';
 import './WorkProcess.css';
 
 const STEPS = [
   {
-    number: '01',
-    title: 'Connect with an Agent',
-    description:
-      'Get in touch with our experienced insurance specialists who will guide you through the entire process.',
-    Icon: UserRound,
+    number: '1',
+    title: 'Tell us about the vehicle',
+    body: 'Seven short questions covering the vehicle, your licence and how you use it. Around three minutes.',
   },
   {
-    number: '02',
-    title: 'Select Best Policy',
-    description:
-      'Browse and compare our comprehensive insurance packages tailored to your specific needs.',
-    Icon: FileText,
+    number: '2',
+    title: 'We search the market',
+    body: 'A specialist compares cover levels and extras across our panel, then calls you with the options that fit.',
   },
   {
-    number: '03',
-    title: 'Review and Purchase',
-    description:
-      'Review your chosen policy details and complete your purchase with confidence.',
-    Icon: Handshake,
+    number: '3',
+    title: 'You go on cover',
+    body: 'Read the wording, ask anything, and start the policy when you are ready. Documents arrive by email.',
   },
 ];
 
 const WorkProcess = () => {
   return (
-    <section className="wp-section">
-      <div className="wp-container">
-        <p className="wp-label fade-in">Work Process</p>
-        <h2 className="wp-title fade-in">
-          Your Insurance, Your Way: The Simple Steps to Coverage
-        </h2>
-        <div className="wp-divider fade-in" aria-hidden="true"></div>
+    <section className="section">
+      <div className="container">
+        <div className="section-head section-head--center reveal">
+          <p className="eyebrow">How it works</p>
+          <h2>Three steps from question to cover</h2>
+        </div>
 
-        <ol className="wp-steps">
-          {STEPS.map(({ number, title, description, Icon }) => (
-            <li key={number} className="wp-step fade-in">
-              <span className="wp-step__badge" aria-hidden="true">{number}</span>
-              <span className="wp-step__icon">
-                <Icon size={44} strokeWidth={1.4} aria-hidden="true" />
-              </span>
-              <h3 className="wp-step__title">
+        <ol className="steps">
+          {STEPS.map(({ number, title, body }) => (
+            <li key={number} className="steps__item reveal">
+              <span className="steps__number" aria-hidden="true">{number}</span>
+              <h3>
                 <span className="visually-hidden">Step {number}: </span>
                 {title}
               </h3>
-              <p className="wp-step__desc">{description}</p>
+              <p>{body}</p>
             </li>
           ))}
         </ol>

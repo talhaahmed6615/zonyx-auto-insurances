@@ -1,32 +1,35 @@
 import { Link } from 'react-router-dom';
-import { Home as HomeIcon, ArrowRight } from 'lucide-react';
-import './About.css';
+import { ArrowRight } from 'lucide-react';
+import PageHero from './PageHero';
 
-const NotFound = () => {
-  return (
-    <div className="page-container fade-in visible">
-      <div className="page-header">
-        <h1>Page <span className="gold-text">Not Found</span></h1>
-        <p>The page you were looking for has moved or no longer exists.</p>
-      </div>
-      <div className="page-content">
-        <div className="about-text notfound-body">
-          <p>
-            Check the address, or head back to the homepage to get a quote for your
-            car, bike or van.
-          </p>
-          <div className="notfound-actions">
-            <Link to="/" className="btn btn-primary">
-              <HomeIcon size={20} aria-hidden="true" /> Back to home
-            </Link>
-            <Link to="/contact" className="btn btn-ghost">
-              Contact us <ArrowRight size={20} aria-hidden="true" />
-            </Link>
-          </div>
+const NotFound = () => (
+  <>
+    <PageHero
+      eyebrow="Error 404"
+      title="We could not find that page"
+      intro="The link may be out of date, or the address may have a typo in it."
+    />
+
+    <div className="page-body">
+      <div className="container">
+        <div className="prose">
+          <p>Here are the pages people usually want:</p>
+          <ul>
+            <li><Link to="/#quote">Get a quote</Link></li>
+            <li><Link to="/cover">Cover types and levels</Link></li>
+            <li><Link to="/#faq">Common questions</Link></li>
+            <li><Link to="/contact">Contact us</Link></li>
+          </ul>
+        </div>
+
+        <div className="page-actions">
+          <Link to="/" className="btn btn-primary">
+            Back to home <ArrowRight size={17} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </div>
-  );
-};
+  </>
+);
 
 export default NotFound;
