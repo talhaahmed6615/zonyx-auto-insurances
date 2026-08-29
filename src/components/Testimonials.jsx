@@ -1,27 +1,32 @@
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 import './Testimonials.css';
 
 const Testimonials = () => {
   return (
-    <section className="section">
+    <section className="section section--tint">
       <div className="container">
-        <figure className="quote reveal">
-          <div className="quote__stars" role="img" aria-label="Rated 5 out of 5">
+        <figure className="pullquote reveal">
+          <Quote className="pullquote__mark" size={52} aria-hidden="true" />
+
+          <div className="pullquote__stars" role="img" aria-label="Rated 5 out of 5">
             {Array.from({ length: 5 }, (_, i) => (
-              <Star key={i} size={18} fill="currentColor" strokeWidth={0} aria-hidden="true" />
+              <Star key={i} size={17} fill="currentColor" strokeWidth={0} aria-hidden="true" />
             ))}
           </div>
 
-          <blockquote className="quote__text">
+          <blockquote className="pullquote__text">
             After enquiring about my first insurance product with the team I have
             gone on to move more products over. From start to finish, every time,
             the team is professional and knowledgeable. Thank you team for making
             something so complicated, so simple.
           </blockquote>
 
-          <figcaption className="quote__author">
-            <span className="quote__name">Mohammed</span>
-            <span className="quote__company">Prestige Vehicle Rentals</span>
+          <figcaption className="pullquote__author">
+            <span className="pullquote__rule" aria-hidden="true" />
+            <span className="pullquote__who">
+              <span className="pullquote__name">Mohammed</span>
+              <span className="pullquote__company">Prestige Vehicle Rentals</span>
+            </span>
           </figcaption>
         </figure>
       </div>

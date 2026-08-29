@@ -1,16 +1,10 @@
-import { Car, Bike, Truck, ArrowRight, Check } from 'lucide-react';
+import { Car, Bike, Truck, ArrowRight, Star } from 'lucide-react';
 import './Hero.css';
 
 const VEHICLES = [
   { value: 'Car', Icon: Car },
   { value: 'Bike', Icon: Bike },
   { value: 'Van', Icon: Truck },
-];
-
-const POINTS = [
-  'Cover for social, commuting, courier and hire & reward',
-  'Comprehensive, third party fire & theft, or third party',
-  'Named specialist looks after your policy end to end',
 ];
 
 const Hero = ({ onStartQuote }) => {
@@ -21,56 +15,67 @@ const Hero = ({ onStartQuote }) => {
           <p className="eyebrow">Car, bike &amp; van insurance</p>
 
           <h1 className="hero__title">
-            Insurance that fits how you actually drive.
+            Cover that understands
+            <em> how you actually drive</em>
           </h1>
 
           <p className="hero__lead">
-            Whether the vehicle is for the school run, the daily commute or a
-            full day of deliveries, we match you to cover that reflects it —
-            and a specialist who picks up the phone.
+            School run, daily commute or a full day of deliveries — we match the
+            policy to the way the vehicle is really used, and give you a
+            specialist who picks up the phone.
           </p>
 
-          <ul className="hero__points">
-            {POINTS.map((point) => (
-              <li key={point}>
-                <span className="hero__tick" aria-hidden="true">
-                  <Check size={13} strokeWidth={3.5} />
-                </span>
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
+          <div className="hero__starter">
+            <p className="hero__starter-label">What are we covering?</p>
 
-        <div className="hero__panel">
-          <div className="quote-starter">
-            <h2 className="quote-starter__title">Start your quote</h2>
-            <p className="quote-starter__sub">What are we covering?</p>
-
-            <div className="quote-starter__options">
+            <div className="hero__vehicles">
               {VEHICLES.map(({ value, Icon }) => (
                 <button
                   key={value}
                   type="button"
-                  className="quote-starter__option"
+                  className="hero__vehicle"
                   onClick={() => onStartQuote?.(value)}
                 >
-                  <Icon size={26} strokeWidth={1.6} aria-hidden="true" />
+                  <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
                   <span>{value}</span>
                 </button>
               ))}
+
+              <a href="#quote" className="btn btn-gold hero__go">
+                Get my price
+                <ArrowRight size={18} aria-hidden="true" />
+              </a>
             </div>
 
-            <a href="#quote" className="btn btn-primary btn-lg btn-block quote-starter__cta">
-              Get my price
-              <ArrowRight size={18} aria-hidden="true" />
-            </a>
-
-            <p className="quote-starter__note">
-              Takes about 3 minutes. No obligation to buy.
+            <p className="hero__starter-note">
+              About three minutes. No obligation to buy.
             </p>
           </div>
         </div>
+
+        <figure className="hero__media">
+          <img
+            src="/images/hero-drive-1400.jpg"
+            srcSet="/images/hero-drive-900.jpg 900w, /images/hero-drive-1400.jpg 1400w"
+            sizes="(max-width: 980px) 100vw, 48vw"
+            width="1400"
+            height="1750"
+            alt="A car on a coastal road at golden hour"
+            fetchPriority="high"
+            decoding="async"
+          />
+
+          <figcaption className="hero__badge">
+            <span className="hero__badge-stars" aria-hidden="true">
+              {Array.from({ length: 5 }, (_, i) => (
+                <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
+              ))}
+            </span>
+            <span className="hero__badge-text">
+              Rated 5 out of 5 by the clients who have reviewed us
+            </span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

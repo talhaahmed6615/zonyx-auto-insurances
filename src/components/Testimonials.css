@@ -1,10 +1,29 @@
-.quote {
-  max-width: 46rem;
+.pullquote {
+  position: relative;
+  max-width: 52rem;
   margin-inline: auto;
+  padding: clamp(2.25rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-md);
   text-align: center;
 }
 
-.quote__stars {
+/* Gold quote glyph straddling the top edge */
+.pullquote__mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 0.55rem;
+  box-sizing: content-box;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--gold-500);
+}
+
+.pullquote__stars {
   display: flex;
   justify-content: center;
   gap: 0.2rem;
@@ -12,31 +31,46 @@
   margin-bottom: 1.5rem;
 }
 
-.quote__text {
-  font-size: clamp(1.1rem, 1rem + 0.85vw, 1.6rem);
-  line-height: 1.55;
+.pullquote__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 0.95rem + 1.2vw, 1.85rem);
+  line-height: 1.45;
   letter-spacing: -0.015em;
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 400;
   text-wrap: balance;
 }
 
-.quote__text::before { content: '\201C'; }
-.quote__text::after { content: '\201D'; }
+.pullquote__text::before { content: '\201C'; }
+.pullquote__text::after { content: '\201D'; }
 
-.quote__author {
-  margin-top: 1.5rem;
+.pullquote__author {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.pullquote__rule {
+  width: 40px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--gold-500);
+}
+
+.pullquote__who {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
 }
 
-.quote__name {
+.pullquote__name {
   font-weight: 600;
   color: var(--ink);
 }
 
-.quote__company {
+.pullquote__company {
   font-size: var(--fs-sm);
   color: var(--ink-3);
 }

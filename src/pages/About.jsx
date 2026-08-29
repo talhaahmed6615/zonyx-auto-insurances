@@ -26,6 +26,7 @@ const About = () => (
       eyebrow="About us"
       title="Motor insurance specialists, not a comparison table"
       intro="Zonyx arranges car, bike and van cover for UK drivers — including the working drivers most comparison sites struggle to price properly."
+      image="/images/road-winding-1900.jpg"
     />
 
     <div className="page-body">

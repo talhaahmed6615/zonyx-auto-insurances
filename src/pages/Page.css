@@ -1,27 +1,85 @@
 /* Shared shell for every non-home page. */
 
 .page-hero {
+  position: relative;
+  isolation: isolate;
   background: var(--navy-900);
   color: rgba(255, 255, 255, 0.72);
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(2.75rem, 5vw, 5rem);
   border-bottom: 3px solid var(--gold-500);
+  overflow: hidden;
+}
+
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Scrim so the heading holds up over any crop of the photograph */
+.page-hero--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgba(10, 21, 48, 0.95) 0%,
+    rgba(10, 21, 48, 0.84) 55%,
+    rgba(10, 21, 48, 0.6) 100%
+  );
+}
+
+/* Soften the photograph so the heading carries the section. scale()
+   hides the transparent edge blur leaves behind. */
+.page-hero--blur .page-hero__bg {
+  filter: blur(7px) saturate(1.05);
+  transform: scale(1.08);
+}
+
+.page-hero--blur::after {
+  background: linear-gradient(
+    100deg,
+    rgba(10, 21, 48, 0.82) 0%,
+    rgba(10, 21, 48, 0.7) 55%,
+    rgba(10, 21, 48, 0.5) 100%
+  );
+}
+
+.page-hero__inner {
+  position: relative;
 }
 
 .page-hero h1 {
   color: #fff;
   margin-bottom: 0.85rem;
+  max-width: 20ch;
 }
 
 .page-hero p {
   max-width: 58ch;
   font-size: var(--fs-lead);
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .page-hero .eyebrow { color: var(--gold-400); }
 
+@media (max-width: 700px) {
+  .page-hero--photo::after {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 21, 48, 0.93) 0%,
+      rgba(10, 21, 48, 0.88) 100%
+    );
+  }
+}
+
 .page-body {
   padding-block: var(--section-y);
+  background: var(--canvas);
 }
 
 /* --- Long-form copy ------------------------------------------------------- */
@@ -73,13 +131,13 @@
 .prose ul li::marker { color: var(--gold-600); }
 
 .prose a {
-  color: var(--navy-700);
+  color: var(--teal-600);
   text-decoration: underline;
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
 
-.prose a:hover { color: var(--navy-900); }
+.prose a:hover { color: var(--teal-700); }
 
 /* Last-updated / disclaimer note */
 .prose-note {
@@ -116,8 +174,8 @@
   width: 40px;
   height: 40px;
   border-radius: var(--r-md);
-  background: var(--navy-50);
-  color: var(--navy-700);
+  background: var(--teal-100);
+  color: var(--teal-600);
 }
 
 .contact-card__label {
@@ -160,7 +218,7 @@ a.contact-card__value:hover {
 
 .value-item {
   padding: clamp(1rem, 2.5vw, 1.35rem);
-  background: var(--surface-2);
+  background: var(--surface);
   border-left: 3px solid var(--gold-500);
   border-radius: 0 var(--r-md) var(--r-md) 0;
 }

@@ -1,176 +1,199 @@
 .hero {
   position: relative;
-  background: var(--surface);
-  padding-block: clamp(2.5rem, 1.5rem + 4.5vw, 5rem) clamp(3rem, 2rem + 5vw, 5.5rem);
+  background: var(--canvas);
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) clamp(3rem, 2rem + 4vw, 5rem);
   overflow: hidden;
-}
-
-/* Soft navy wash behind the panel side. Flat colour, no glow. */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 0 52%;
-  background: var(--navy-50);
-  border-left: 1px solid var(--line);
-  z-index: 0;
 }
 
 .hero__inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr minmax(360px, 420px);
+  grid-template-columns: 1fr 0.85fr;
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
 }
 
 .hero__content {
-  max-width: 34rem;
+  max-width: 36rem;
 }
 
 .hero__title {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.15rem;
+}
+
+/* The italic clause is the one flourish the display face earns */
+.hero__title em {
+  font-style: italic;
+  color: var(--navy-800);
 }
 
 .hero__lead {
   font-size: var(--fs-lead);
   color: var(--ink-2);
-  max-width: 34rem;
+  max-width: 33rem;
 }
 
-.hero__points {
-  margin-top: 1.75rem;
-  display: grid;
-  gap: 0.7rem;
-}
+/* --- Inline quote starter -------------------------------------------------- */
 
-.hero__points li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  font-size: var(--fs-sm);
-  color: var(--ink-2);
-}
-
-.hero__tick {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  margin-top: 0.15rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--success-bg);
-  color: var(--success);
-}
-
-/* --- Quote starter card --------------------------------------------------- */
-
-.hero__panel {
-  justify-self: end;
-  width: 100%;
-}
-
-.quote-starter {
+.hero__starter {
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  padding: clamp(1.15rem, 2.5vw, 1.5rem);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
-  box-shadow: var(--shadow-lg);
-  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: var(--shadow-md);
 }
 
-.quote-starter__title {
-  font-size: 1.3rem;
-  margin-bottom: 0.3rem;
-}
-
-.quote-starter__sub {
+.hero__starter-label {
   font-size: var(--fs-sm);
-  color: var(--ink-3);
-  margin-bottom: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
 }
 
-.quote-starter__options {
+.hero__vehicles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.65rem;
-  margin-bottom: 1.25rem;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 0.6rem;
 }
 
-.quote-starter__option {
+.hero__vehicle {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 0.5rem;
-  border: 1px solid var(--line);
+  gap: 0.4rem;
+  padding: 0.75rem 0.5rem;
+  min-height: 76px;
+  border: 1px solid var(--line-strong);
   border-radius: var(--r-md);
   background: var(--surface);
   color: var(--navy-800);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
   transition: border-color 0.18s var(--ease), background-color 0.18s var(--ease),
-    box-shadow 0.18s var(--ease);
+    color 0.18s var(--ease);
 }
 
-.quote-starter__option:hover {
-  border-color: var(--navy-600);
-  background: var(--navy-50);
-  box-shadow: var(--shadow-xs);
+.hero__vehicle:hover {
+  border-color: var(--teal-600);
+  background: var(--teal-100);
+  color: var(--teal-700);
 }
 
-.quote-starter__note {
-  margin-top: 0.85rem;
+.hero__go {
+  min-height: 76px;
+  padding-inline: 1.4rem;
+  white-space: nowrap;
+}
+
+.hero__starter-note {
+  margin-top: 0.75rem;
   font-size: var(--fs-xs);
   color: var(--ink-3);
-  text-align: center;
 }
 
-/* --- Breakpoints ---------------------------------------------------------- */
+/* --- Photograph ------------------------------------------------------------ */
+
+.hero__media {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  /* portrait crop balances the tall copy column */
+  aspect-ratio: 4 / 5;
+  background: var(--surface-3);
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__badge {
+  position: absolute;
+  left: clamp(0.75rem, 2vw, 1.15rem);
+  right: clamp(0.75rem, 2vw, 1.15rem);
+  bottom: clamp(0.75rem, 2vw, 1.15rem);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .hero__badge {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.hero__badge-stars {
+  display: inline-flex;
+  gap: 0.1rem;
+  flex-shrink: 0;
+  color: var(--gold-500);
+}
+
+.hero__badge-text {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+/* --- Breakpoints ----------------------------------------------------------- */
 
 @media (max-width: 980px) {
-  /* Stacked, the split band cut across the copy at an arbitrary point.
-     Tint the whole section instead and let the white card lift off it. */
-  .hero {
-    background: var(--navy-50);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .hero::before { display: none; }
-
   .hero__inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    justify-items: center;
-    text-align: center;
+    gap: 2.25rem;
   }
 
   .hero__content {
-    max-width: 40rem;
+    max-width: 42rem;
+    order: 1;
   }
 
-  .hero__points {
-    display: inline-grid;
-    text-align: left;
+  .hero__media {
+    order: 2;
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero__vehicles {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .hero__panel {
-    justify-self: stretch;
-    max-width: 460px;
-    margin-inline: auto;
+  .hero__go {
+    grid-column: 1 / -1;
+    min-height: 52px;
+  }
+
+  .hero__vehicle {
+    min-height: 68px;
   }
 }
 
 @media (max-width: 380px) {
-  .quote-starter__options {
+  .hero__vehicles {
     grid-template-columns: 1fr;
   }
 
-  .quote-starter__option {
+  .hero__vehicle {
     flex-direction: row;
     justify-content: flex-start;
-    gap: 0.75rem;
-    padding: 0.85rem 1rem;
+    gap: 0.7rem;
+    min-height: 52px;
+    padding: 0.65rem 1rem;
   }
 }

@@ -1,62 +1,129 @@
-.why__layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 380px) 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: start;
+.why {
+  background: var(--surface);
 }
 
-.why__intro h2 {
+.why__layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+/* --- Photograph ----------------------------------------------------------- */
+
+.why__media {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--surface-3);
+  box-shadow: var(--shadow-lg);
+}
+
+.why__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.why__stat {
+  position: absolute;
+  left: clamp(0.85rem, 2vw, 1.25rem);
+  right: clamp(0.85rem, 2vw, 1.25rem);
+  bottom: clamp(0.85rem, 2vw, 1.25rem);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--r-md);
+  background: rgba(10, 21, 48, 0.9);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .why__stat {
+    background: rgba(10, 21, 48, 0.76);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.why__stat-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--gold-400);
+  flex-shrink: 0;
+}
+
+.why__stat-label {
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+}
+
+/* --- Copy ----------------------------------------------------------------- */
+
+.why__content h2 {
   margin-bottom: 1rem;
 }
 
 .why__lead {
   font-size: var(--fs-lead);
   color: var(--ink-2);
-  margin-bottom: 1.5rem;
 }
 
 .why__grid {
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.25rem);
+  gap: clamp(1.35rem, 3vw, 2rem);
+}
+
+.why__item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
 }
 
 .why__item h3 {
-  font-size: 1.05rem;
-  margin: 0.9rem 0 0.45rem;
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
 }
 
 .why__item p {
   font-size: var(--fs-sm);
   color: var(--ink-2);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .why__icon {
+  flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--r-md);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  color: var(--navy-700);
+  background: var(--teal-100);
+  color: var(--teal-600);
 }
+
+/* --- Breakpoints ---------------------------------------------------------- */
 
 @media (max-width: 900px) {
   .why__layout {
     grid-template-columns: 1fr;
     gap: 2.25rem;
   }
+
+  .why__media {
+    aspect-ratio: 16 / 10;
+    max-height: 340px;
+  }
 }
 
 @media (max-width: 560px) {
   .why__grid {
     grid-template-columns: 1fr;
-    gap: 1.6rem;
+    gap: 1.4rem;
   }
-}
-
-@media (pointer: coarse) {
-  .why__link { padding-block: 0.5rem; }
 }

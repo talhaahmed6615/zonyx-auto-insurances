@@ -1,5 +1,5 @@
 .quote-section {
-  background: var(--surface);
+  background: var(--canvas);
   scroll-margin-top: var(--header-h);
 }
 

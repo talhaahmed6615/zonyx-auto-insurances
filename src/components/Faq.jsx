@@ -33,7 +33,7 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="section section--tint">
+    <section id="faq" className="section section--plain">
       <div className="container">
         <div className="faq__layout">
           <div className="faq__intro reveal">

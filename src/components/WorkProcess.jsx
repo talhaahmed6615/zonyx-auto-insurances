@@ -20,7 +20,7 @@ const STEPS = [
 
 const WorkProcess = () => {
   return (
-    <section className="section">
+    <section className="section section--plain">
       <div className="container">
         <div className="section-head section-head--center reveal">
           <p className="eyebrow">How it works</p>

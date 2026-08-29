@@ -10,6 +10,7 @@ const Cover = () => (
       eyebrow="What we arrange"
       title="Cover types"
       intro="From social use through to hire and reward, here is what each class of use means and how far each level of cover goes."
+      image="/images/van-road-1400.jpg"
     />
     <Categories />
     <CoverLevels />

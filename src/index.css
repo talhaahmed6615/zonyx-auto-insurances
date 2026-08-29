@@ -8,67 +8,76 @@
    ========================================================================== */
 
 :root {
-  /* Brand — navy and gold, taken from the shield mark */
-  --navy-900: #0a1633;
-  --navy-800: #0f2149;
-  --navy-700: #17305f;
-  --navy-600: #24437f;
-  --navy-100: #e8edf7;
-  --navy-50: #f2f6fc;
+  /* Brand — navy and gold from the shield mark, warmed up */
+  --navy-900: #0a1530;
+  --navy-800: #0e1e42;
+  --navy-700: #162c5c;
+  --navy-600: #22407d;
+  --navy-100: #dfe6f4;
+  --navy-50: #eff3fa;
 
-  --gold-700: #8c6318;
-  --gold-600: #a97b22;
-  --gold-500: #c08f2b;
-  --gold-400: #d9ae4e;
-  --gold-100: #f8f1de;
+  --gold-700: #8a6518;
+  --gold-600: #b98a2e;
+  --gold-500: #c99c3c;
+  --gold-400: #d6a94a;
+  --gold-100: #f6edd9;
 
-  /* Ink */
-  --ink: #101a2e;
-  --ink-2: #47526a;
-  --ink-3: #6d788c;
+  /* Teal keeps the navy/gold pairing from reading heavy or dated */
+  --teal-700: #0a4f47;
+  --teal-600: #0c6157;
+  --teal-500: #14806f;
+  --teal-100: #e2f0ec;
 
-  /* Surfaces */
+  /* Ink — warm near-black, not pure grey */
+  --ink: #15181f;
+  --ink-2: #4c5462;
+  --ink-3: #737d8d;
+
+  /* Surfaces — ivory canvas with white cards lifting off it */
+  --canvas: #faf7f2;
   --surface: #ffffff;
-  --surface-2: #f6f8fc;
-  --surface-3: #edf1f8;
-  --line: #dfe5ef;
-  --line-strong: #c6cfdf;
+  --surface-2: #f4efe7;
+  --surface-3: #ece5da;
+  --line: #e4ddd2;
+  --line-strong: #cfc5b6;
 
   /* Status */
-  --success: #0d7a55;
-  --success-bg: #e7f5ef;
+  --success: var(--teal-600);
+  --success-bg: var(--teal-100);
   --danger: #b3271d;
   --danger-bg: #fdeeec;
 
-  /* Type */
+  /* Type — editorial serif for display, Inter for everything else */
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --font-mark: 'Cinzel', Georgia, serif;
 
-  --fs-display: clamp(2.1rem, 1.35rem + 3.1vw, 3.75rem);
-  --fs-h2: clamp(1.6rem, 1.25rem + 1.5vw, 2.5rem);
+  --fs-display: clamp(2.35rem, 1.4rem + 3.9vw, 4.4rem);
+  --fs-h2: clamp(1.75rem, 1.3rem + 1.9vw, 2.9rem);
   --fs-h3: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
-  --fs-lead: clamp(1rem, 0.95rem + 0.35vw, 1.2rem);
+  --fs-lead: clamp(1.05rem, 0.98rem + 0.4vw, 1.25rem);
   --fs-body: 1rem;
-  --fs-sm: 0.9rem;
+  --fs-sm: 0.925rem;
   --fs-xs: 0.8rem;
 
   /* Layout */
   --container: 1200px;
   --container-wide: 1320px;
   --gutter: clamp(1.15rem, 0.7rem + 2vw, 2rem);
-  --section-y: clamp(3rem, 1.75rem + 5.5vw, 6rem);
+  --section-y: clamp(3.5rem, 2rem + 6vw, 7rem);
   --header-h: 76px;
 
-  /* Shape — modest radii, neutral shadows. No colour glows. */
+  /* Shape */
   --r-sm: 6px;
   --r-md: 10px;
   --r-lg: 16px;
+  --r-xl: 24px;
   --r-pill: 999px;
 
-  --shadow-xs: 0 1px 2px rgba(16, 26, 46, 0.06);
-  --shadow-sm: 0 1px 3px rgba(16, 26, 46, 0.08), 0 1px 2px rgba(16, 26, 46, 0.04);
-  --shadow-md: 0 4px 12px rgba(16, 26, 46, 0.08), 0 2px 4px rgba(16, 26, 46, 0.04);
-  --shadow-lg: 0 12px 32px rgba(16, 26, 46, 0.1), 0 4px 8px rgba(16, 26, 46, 0.04);
+  --shadow-xs: 0 1px 2px rgba(21, 24, 31, 0.05);
+  --shadow-sm: 0 1px 3px rgba(21, 24, 31, 0.07), 0 1px 2px rgba(21, 24, 31, 0.04);
+  --shadow-md: 0 6px 18px rgba(21, 24, 31, 0.07), 0 2px 6px rgba(21, 24, 31, 0.04);
+  --shadow-lg: 0 18px 44px rgba(21, 24, 31, 0.1), 0 6px 12px rgba(21, 24, 31, 0.04);
 
   --ease: cubic-bezier(0.2, 0, 0, 1);
 }
@@ -100,9 +109,9 @@ html {
 body {
   font-family: var(--font);
   font-size: var(--fs-body);
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--ink-2);
-  background: var(--surface);
+  background: var(--canvas);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -110,15 +119,31 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
-h1 { font-size: var(--fs-display); letter-spacing: -0.03em; }
+/* Display sizes carry the editorial serif; smaller headings stay in Inter
+   so UI labels and card titles keep their clarity. */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: var(--fs-display); }
 h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); letter-spacing: -0.01em; }
+
+h3, h4, h5, h6 {
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 { font-size: var(--fs-h3); }
 
 p { text-wrap: pretty; }
 
@@ -196,6 +221,7 @@ strong { color: var(--ink); font-weight: 600; }
   padding-block: var(--section-y);
 }
 
+.section--plain { background: var(--surface); }
 .section--tint { background: var(--surface-2); }
 .section--navy { background: var(--navy-900); color: rgba(255, 255, 255, 0.78); }
 .section--navy h2,
@@ -221,7 +247,7 @@ strong { color: var(--ink); font-weight: 600; }
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--gold-700);
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .eyebrow::before {
@@ -278,15 +304,23 @@ strong { color: var(--ink); font-weight: 600; }
 
 .btn-gold:hover { background: var(--gold-400); }
 
+.btn-teal {
+  background: var(--teal-600);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-teal:hover { background: var(--teal-700); }
+
 .btn-outline {
-  background: var(--surface);
+  background: transparent;
   color: var(--navy-800);
   border-color: var(--line-strong);
 }
 
 .btn-outline:hover {
-  border-color: var(--navy-600);
-  background: var(--navy-50);
+  border-color: var(--navy-700);
+  background: var(--surface);
 }
 
 .btn-ghost-light {
@@ -314,11 +348,11 @@ strong { color: var(--ink); font-weight: 600; }
   align-items: center;
   gap: 0.4rem;
   font-weight: 600;
-  color: var(--navy-700);
+  color: var(--teal-600);
   transition: gap 0.18s var(--ease), color 0.18s var(--ease);
 }
 
-.link-arrow:hover { gap: 0.65rem; color: var(--navy-900); }
+.link-arrow:hover { gap: 0.65rem; color: var(--teal-700); }
 
 /* --- Cards --------------------------------------------------------------- */
 
