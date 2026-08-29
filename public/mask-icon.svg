@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" width="120" height="150">
+  <title>Zonyx</title>
+  <path d="M14 8 H106 A6 6 0 0 1 112 14 V72 C112 106 88 130 60 142 C32 130 8 106 8 72 V14 A6 6 0 0 1 14 8 Z M23 18 H97 A3 3 0 0 1 100 21 V70.5 C100 96 81 115.5 60 125.5 C39 115.5 20 96 20 70.5 V21 A3 3 0 0 1 23 18 Z" fill-rule="evenodd"/>
+  <path d="M32 40 H88 V50 L52 88 H88 V100 H32 V90 L68 52 H32 Z"/>
+</svg>

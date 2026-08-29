@@ -1,0 +1,213 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  background: rgba(5, 5, 5, 0.92);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 0.9rem var(--gutter);
+  padding-top: max(0.9rem, env(safe-area-inset-top));
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease), padding 0.3s var(--ease);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .header {
+    background: rgba(5, 5, 5, 0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+  }
+}
+
+.header.is-scrolled {
+  background: rgba(0, 0, 0, 0.94);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+  padding-block: 0.6rem;
+}
+
+/* Drawer covers the viewport — keep the bar itself opaque underneath it. */
+.header.menu-open {
+  background: #000;
+  backdrop-filter: none;
+}
+
+.header-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-link {
+  flex: 0 1 auto;
+  min-width: 0;
+  position: relative;
+  z-index: 1002;
+  transition: transform 0.3s var(--ease);
+}
+
+@media (hover: hover) {
+  .logo-link:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  position: relative;
+  padding-block: 0.35rem;
+  transition: color 0.35s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--gold-sheen);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.nav-item:hover,
+.nav-item.is-active {
+  color: var(--pure-white);
+}
+
+.nav-item:hover::after,
+.nav-item.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-btn {
+  background: var(--gold-sheen);
+  color: #140d02;
+  padding: 0.75rem clamp(1.25rem, 2.5vw, 2.25rem);
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), filter 0.35s ease;
+  box-shadow: 0 8px 24px rgba(192, 143, 43, 0.25);
+}
+
+@media (hover: hover) {
+  .nav-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 12px 32px rgba(192, 143, 43, 0.38);
+  }
+}
+
+.nav-btn:active {
+  transform: translateY(0);
+}
+
+/* --- Mobile toggle + drawer ---------------------------------------------- */
+
+.mobile-menu-toggle {
+  display: none;
+  color: var(--pure-white);
+  padding: 0.35rem;
+  margin: -0.35rem;
+  position: relative;
+  z-index: 1002;
+}
+
+.nav-scrim {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease);
+    z-index: 999;
+  }
+
+  .nav-scrim.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(88vw, 360px);
+    height: 100vh;
+    height: 100dvh;
+    background: linear-gradient(160deg, #0a0a0a 0%, #000 100%);
+    border-left: 1px solid var(--accent-line);
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: calc(var(--header-h) + 1.5rem) 2rem 2.5rem;
+    padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.45s var(--ease), visibility 0.45s;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .nav-item {
+    font-size: 1.15rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .nav-item::after {
+    bottom: -1px;
+  }
+
+  .nav-btn {
+    margin-top: 1.75rem;
+    padding: 1.05rem 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-links {
+    width: 100vw;
+    padding-inline: 1.5rem;
+  }
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <title>Zonyx</title>
+  <defs>
+    <linearGradient id="zg" x1="32" y1="14" x2="128" y2="152" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8C6318"/>
+      <stop offset="0.18" stop-color="#D9A93C"/>
+      <stop offset="0.34" stop-color="#FDF6C0"/>
+      <stop offset="0.5" stop-color="#C08F2B"/>
+      <stop offset="0.68" stop-color="#FBF3B4"/>
+      <stop offset="0.85" stop-color="#C69430"/>
+      <stop offset="1" stop-color="#8A6015"/>
+    </linearGradient>
+    <linearGradient id="zgs" x1="40" y1="26" x2="120" y2="136" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E7C25F"/>
+      <stop offset="0.5" stop-color="#FDF6C0"/>
+      <stop offset="1" stop-color="#B0801F"/>
+    </linearGradient>
+    <linearGradient id="zf" x1="80" y1="23" x2="80" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16224A"/>
+      <stop offset="0.55" stop-color="#0C1330"/>
+      <stop offset="1" stop-color="#05081A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded plate so the mark holds up on light and dark tab strips -->
+  <rect width="160" height="160" rx="34" fill="#000000"/>
+
+  <!-- Shield from the 120x150 master, scaled to fill the plate and optically
+       centred (the path itself spans 8..112 x 8..142, not the full box). -->
+  <g transform="translate(14.2, -2.3) scale(1.1)">
+    <path d="M14 8 H106 A6 6 0 0 1 112 14 V72 C112 106 88 130 60 142 C32 130 8 106 8 72 V14 A6 6 0 0 1 14 8 Z" fill="url(#zg)"/>
+    <path d="M20 15 H100 A4 4 0 0 1 104 19 V71 C104 100 84 121 60 132 C36 121 16 100 16 71 V19 A4 4 0 0 1 20 15 Z" fill="url(#zf)"/>
+    <path d="M20 15 H60 V132 C36 121 16 100 16 71 V19 A4 4 0 0 1 20 15 Z" fill="#000000" fill-opacity="0.22"/>
+    <path d="M23.5 19.5 H96.5 A3 3 0 0 1 99.5 22.5 V70.5 C99.5 96 81 115 60 125 C39 115 20.5 96 20.5 70.5 V22.5 A3 3 0 0 1 23.5 19.5 Z" fill="none" stroke="url(#zgs)" stroke-width="1.6"/>
+    <path d="M32 40 H88 V50 L52 88 H88 V100 H32 V90 L68 52 H32 Z" fill="url(#zg)"/>
+  </g>
+</svg>

@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Zonyx logo — every dimension scales off --logo-size so the header, hero
+   and footer instances stay in proportion at any size.
+   ========================================================================== */
+
+.zonyx-logo {
+  --logo-gold-a: #8C6318;
+  --logo-gold-b: #E7C25F;
+  --logo-gold-c: #FDF6C0;
+  --logo-gold-d: #C08F2B;
+
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--logo-size, 48px) * 0.28);
+  min-width: 0;
+  line-height: 1;
+}
+
+.zonyx-logo.is-stacked {
+  flex-direction: column;
+  gap: calc(var(--logo-size, 48px) * 0.2);
+  text-align: center;
+}
+
+/* --- Shield ------------------------------------------------------------- */
+
+.zonyx-logo__mark {
+  flex-shrink: 0;
+  width: var(--logo-size, 48px);
+  height: calc(var(--logo-size, 48px) * 1.25);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+}
+
+.zonyx-logo__mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.zonyx-logo__shield,
+.zonyx-logo__z {
+  transition: filter 0.45s ease;
+}
+
+/* --- Wordmark ----------------------------------------------------------- */
+
+.zonyx-logo__text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.zonyx-logo__word {
+  font-family: var(--font-display, 'Cinzel', Georgia, 'Times New Roman', serif);
+  font-size: calc(var(--logo-size, 48px) * 0.62);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  /* trailing letter-space would push the wordmark off-centre above the rule */
+  text-indent: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--logo-gold-b);
+}
+
+/* Gold-foil fill. Guarded so the text never disappears where the
+   background-clip:text pair is unsupported. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .zonyx-logo__word {
+    background: linear-gradient(
+      170deg,
+      var(--logo-gold-a) 0%,
+      var(--logo-gold-b) 22%,
+      var(--logo-gold-c) 42%,
+      var(--logo-gold-d) 58%,
+      var(--logo-gold-c) 76%,
+      var(--logo-gold-a) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+.zonyx-logo__tagline {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--logo-size, 48px) * 0.11);
+  margin-top: calc(var(--logo-size, 48px) * 0.13);
+  font-family: var(--font-primary, sans-serif);
+  font-size: max(0.5rem, calc(var(--logo-size, 48px) * 0.165));
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.zonyx-logo__rule {
+  flex: 1 1 auto;
+  min-width: calc(var(--logo-size, 48px) * 0.12);
+  height: 1px;
+  border: 0;
+  background: linear-gradient(to right, transparent, var(--logo-gold-b), transparent);
+}
+
+/* --- Interaction -------------------------------------------------------- */
+
+@media (hover: hover) {
+  .zonyx-logo:hover .zonyx-logo__z {
+    filter: brightness(1.25) drop-shadow(0 0 4px rgba(231, 194, 95, 0.65));
+  }
+
+  .zonyx-logo:hover .zonyx-logo__shield {
+    filter: brightness(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zonyx-logo__shield,
+  .zonyx-logo__z {
+    transition: none;
+  }
+}
+
+/* --- Small screens ------------------------------------------------------
+   Shrink the wordmark faster than the shield so the lockup keeps fitting
+   next to the burger button on narrow phones. */
+
+@media (max-width: 480px) {
+  .zonyx-logo {
+    gap: calc(var(--logo-size, 48px) * 0.22);
+  }
+
+  .zonyx-logo__word {
+    font-size: calc(var(--logo-size, 48px) * 0.55);
+    letter-spacing: 0.05em;
+    text-indent: 0.05em;
+  }
+
+  .zonyx-logo__tagline {
+    letter-spacing: 0.2em;
+    text-indent: 0.2em;
+  }
+}
+
+@media (max-width: 360px) {
+  .zonyx-logo__tagline {
+    letter-spacing: 0.14em;
+    text-indent: 0.14em;
+  }
+}

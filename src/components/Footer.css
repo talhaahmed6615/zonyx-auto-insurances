@@ -1,0 +1,147 @@
+.footer {
+  background-color: #000;
+  color: var(--pure-white);
+  padding: clamp(3rem, 7vw, 6rem) var(--gutter) clamp(1.5rem, 3vw, 2rem);
+  padding-bottom: max(clamp(1.5rem, 3vw, 2rem), env(safe-area-inset-bottom));
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--accent-line);
+}
+
+.footer-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(240px, 1.2fr) 2fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.footer-brand {
+  min-width: 0;
+}
+
+.footer-logo {
+  display: inline-block;
+}
+
+.footer-desc {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 40ch;
+  font-size: var(--fs-body);
+}
+
+.footer-contact {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-muted);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact a:hover {
+  color: var(--gold-bright);
+}
+
+.footer-contact svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+/* --- Link columns --------------------------------------------------------- */
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.link-column h2 {
+  color: var(--pure-white);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+
+.link-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link-column a {
+  color: var(--mid-gray);
+  font-size: var(--fs-body);
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.link-column a:hover {
+  color: var(--gold-bright);
+}
+
+/* --- Bottom bar ----------------------------------------------------------- */
+
+.footer-bottom {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-top: clamp(1.25rem, 3vw, 2rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: var(--mid-gray);
+  font-size: var(--fs-small);
+}
+
+/* --- Breakpoints ---------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* --- Touch ergonomics -----------------------------------------------------
+   Footer links sat at ~24px tall. On touch pointers they get vertical
+   padding (tighter list gap keeps the block the same overall height). */
+
+@media (pointer: coarse) {
+  .link-column ul {
+    gap: 0.1rem;
+  }
+
+  .link-column a {
+    padding-block: 0.6rem;
+  }
+
+  .footer-contact {
+    gap: 0.1rem;
+  }
+
+  .footer-contact a {
+    padding-block: 0.6rem;
+  }
+}
