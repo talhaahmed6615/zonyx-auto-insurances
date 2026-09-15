@@ -194,7 +194,7 @@ const QuoteForm = ({ startVehicle = null }) => {
     e.preventDefault();
 
     // Pressing Enter in any field fires submit, even on steps with no submit
-    // button. Treat that as "next" rather than sending a half-filled lead.
+    // button. Treat that as "next" rather than sending a half-filled request.
     if (step < TOTAL_STEPS) {
       goNext();
       return;
@@ -216,7 +216,7 @@ const QuoteForm = ({ startVehicle = null }) => {
         },
         body: JSON.stringify({
           ...formData,
-          _subject: 'New Zonyx Auto Insurance Detailed Lead!',
+          _subject: 'New Zonyx Auto Insurance quote request',
         }),
       });
 
@@ -506,7 +506,7 @@ const QuoteForm = ({ startVehicle = null }) => {
       <section id="quote" className="section quote-section">
         <div className="container success-card">
           <CheckCircle2 size={72} strokeWidth={1.25} aria-hidden="true" />
-          <h2>Lead Received</h2>
+          <h2>Request Received</h2>
           <p>
             Thank you{formData.fullName ? ', ' + formData.fullName : ''}. Your insurance
             request has been sent to our agents. We will contact you at{' '}

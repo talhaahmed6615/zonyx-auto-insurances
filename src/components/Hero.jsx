@@ -33,13 +33,14 @@ const Hero = ({ onStartQuote }) => {
             <p className="eyebrow">Car, bike &amp; van insurance</p>
 
             <h1 className="hero__title">
-              Cover that understands
-              <em> how you actually drive</em>
+              We Compare. We Guide.
+              <em> You Choose.</em>
             </h1>
 
             <p className="hero__lead">
-              Policies matched to how the vehicle is really used, with a
-              specialist who picks up the phone.
+              Tell us how you use your vehicle, and our specialist will do the
+              hard work of finding and explaining suitable insurance options
+              for you.
             </p>
 
             <div className="hero__actions">
