@@ -4,7 +4,7 @@ import './Categories.css';
 const CATEGORIES = [
   {
     title: 'Social only',
-    body: 'Personal trips, shopping and visiting friends — no commuting.',
+    body: 'Personal trips, shopping and visiting friends, no commuting.',
     Icon: Users,
   },
   {

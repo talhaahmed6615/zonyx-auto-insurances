@@ -5,7 +5,7 @@ import './Faq.css';
 const FAQS = [
   {
     q: 'What is a class of use, and why does it matter so much?',
-    a: 'Your class of use describes what you do with the vehicle — social, commuting, business, courier work, or carrying passengers for payment. If you claim while driving outside the class on your policy, the insurer can refuse it. It is the single most common reason a motor claim gets declined, which is why we confirm it before the policy is issued.',
+    a: 'Your class of use describes what you do with the vehicle, social, commuting, business, courier work, or carrying passengers for payment. If you claim while driving outside the class on your policy, the insurer can refuse it. It is the single most common reason a motor claim gets declined, which is why we confirm it before the policy is issued.',
   },
   {
     q: 'Can comprehensive cover really be cheaper than third party?',
@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: 'Do I need to tell you about modifications?',
-    a: 'Yes — anything that changes the vehicle from factory specification, including alloys, remaps, tow bars and suspension. Undeclared modifications can void a policy. Declaring them does not always increase the premium, and it removes the risk entirely.',
+    a: 'Yes, anything that changes the vehicle from factory specification, including alloys, remaps, tow bars and suspension. Undeclared modifications can void a policy. Declaring them does not always increase the premium, and it removes the risk entirely.',
   },
   {
     q: 'I only have a provisional licence. Can you still help?',
@@ -40,7 +40,7 @@ const Faq = () => {
             <p className="eyebrow">Common questions</p>
             <h2>The things worth checking before you buy</h2>
             <p>
-              Cannot see your question? Call us and ask — we would rather answer
+              Cannot see your question? Call us and ask, we would rather answer
               it now than at claim stage.
             </p>
           </div>

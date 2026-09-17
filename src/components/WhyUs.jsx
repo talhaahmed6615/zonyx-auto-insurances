@@ -52,7 +52,7 @@ const WhyUs = () => {
             <p className="eyebrow">Why Zonyx</p>
             <h2>Brokers who read the small print so you do not have to</h2>
             <p className="why__lead">
-              Insurance goes wrong at the edges — the class of use, the excess,
+              Insurance goes wrong at the edges, the class of use, the excess,
               the modification nobody declared. That is the part we take
               seriously.
             </p>

@@ -25,7 +25,7 @@ const About = () => (
     <PageHero
       eyebrow="About us"
       title="Motor insurance specialists, not a comparison table"
-      intro="Zonyx arranges car, bike and van cover for UK drivers — including the working drivers most comparison sites struggle to price properly."
+      intro="Zonyx arranges car, bike and van cover for UK drivers, including the working drivers most comparison sites struggle to price properly."
       image="/images/road-winding-1900.jpg"
     />
 
@@ -40,7 +40,7 @@ const About = () => (
           </p>
           <p>
             Most of our work is with drivers whose circumstances do not fit a
-            standard form — couriers and delivery drivers, private hire drivers,
+            standard form, couriers and delivery drivers, private hire drivers,
             people on provisional or overseas licences, and drivers with claims
             history. Those cases need a conversation, not a dropdown.
           </p>

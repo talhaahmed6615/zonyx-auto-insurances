@@ -17,8 +17,8 @@ export const CONTACT = {
  * the strip renders whatever is in this array and nothing more.
  */
 export const TRUST_STATS = [
-  { value: '25+', label: 'Years arranging motor cover' },
-  { value: '5m+', label: 'Drivers helped to date' },
+  { value: '5+', label: 'Years arranging motor cover' },
+  { value: '500+', label: 'Drivers helped to date' },
   { value: '8', label: 'Classes of use covered' },
   { value: '24/7', label: 'Claims line, every day' },
 ];

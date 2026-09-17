@@ -24,7 +24,7 @@ const CtaBand = () => {
           <h2>Ready to see your price?</h2>
           <p>
             Answer seven quick questions and a specialist will come back to you
-            with cover options — usually the same working day.
+            with cover options, usually the same working day.
           </p>
 
           <div className="cta-band__actions">

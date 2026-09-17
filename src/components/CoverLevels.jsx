@@ -58,7 +58,7 @@ const CoverLevels = () => {
           <p className="eyebrow">Levels of cover</p>
           <h2>Choose how far your protection goes</h2>
           <p>
-            Comprehensive is not always the priciest option — on some vehicles
+            Comprehensive is not always the priciest option, on some vehicles
             it costs less than third party. We will price all three for you.
           </p>
         </div>
@@ -87,7 +87,7 @@ const CoverLevels = () => {
                     </span>
                     <span>{label}</span>
                     <span className="visually-hidden">
-                      {included ? ' — included' : ' — not included'}
+                      {included ? ', included' : ', not included'}
                     </span>
                   </li>
                 ))}
@@ -123,7 +123,7 @@ const CoverLevels = () => {
 
         <p className="cover-note">
           Cover levels follow standard UK motor insurance definitions. Exact
-          limits, excesses and exclusions are set by the insurer — we will send
+          limits, excesses and exclusions are set by the insurer, we will send
           the policy wording before anything is agreed.
         </p>
       </div>

@@ -1,3 +1,12 @@
+.testimonials-head {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.testimonials-head h2 {
+  margin-top: 0.5rem;
+}
+
 .pullquote {
   position: relative;
   max-width: 52rem;
@@ -8,6 +17,18 @@
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-md);
   text-align: center;
+  animation: fadeSlideIn 0.45s ease-out both;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Gold quote glyph straddling the top edge */
@@ -73,4 +94,59 @@
 .pullquote__company {
   font-size: var(--fs-sm);
   color: var(--ink-3);
+}
+
+/* ---- Carousel navigation ---- */
+.testimonials-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.testimonials-nav__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.testimonials-nav__btn:hover {
+  background: var(--gold-500);
+  color: #fff;
+  border-color: var(--gold-500);
+}
+
+.testimonials-nav__dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.testimonials-nav__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--line);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.testimonials-nav__dot.is-active {
+  background: var(--gold-500);
+  transform: scale(1.25);
+}
+
+.testimonials-nav__dot:hover:not(.is-active) {
+  background: var(--ink-3);
 }

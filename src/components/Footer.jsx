@@ -42,7 +42,7 @@ const Footer = () => {
             <Logo size={36} onDark />
           </Link>
           <p className="site-footer__blurb">
-            Motor insurance specialists for UK drivers — from social use and
+            Motor insurance specialists for UK drivers, from social use and
             commuting through to courier work and private hire.
           </p>
           <ul className="site-footer__contact">

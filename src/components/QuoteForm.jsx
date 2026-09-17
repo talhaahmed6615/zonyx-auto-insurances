@@ -33,12 +33,12 @@ const VEHICLES = [
 
 const USAGE_OPTIONS = [
   'Social', 'Social & Commuting', 'Food Delivery', 'Parcel Delivery',
-  'Courier', 'Business Use', 'Hire & Reward', 'Taxi',
+  'Courier', 'Business Use', 'Hire & Reward', 'Taxi', 'Not Sure Yet',
 ];
 
 const LICENSE_OPTIONS = [
   'UK Driving License', 'UK Provisional License',
-  'EU Driving License', 'International Driving License',
+  'EU Driving License', 'International Driving License', 'Not Sure Yet',
 ];
 
 const currentYear = new Date().getFullYear();
@@ -375,9 +375,9 @@ const QuoteForm = ({ startVehicle = null }) => {
               <select id="claimsLast5Years" {...fieldProps('claimsLast5Years')}>
                 <option value="">Select Option</option>
                 <option value="No">No</option>
-                <option value="Yes - 1">Yes - 1</option>
-                <option value="Yes - 2">Yes - 2</option>
-                <option value="Yes - 3+">Yes - 3+</option>
+                <option value="Yes, 1">Yes, 1</option>
+                <option value="Yes, 2">Yes, 2</option>
+                <option value="Yes, 3+">Yes, 3+</option>
               </select>
               <FieldError name="claimsLast5Years" />
             </div>
