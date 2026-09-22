@@ -3,9 +3,9 @@
 export const CONTACT = {
   phone: '+44 7932 578446',
   phoneHref: 'tel:+447932578446',
-  email: 'zonyxautoinsurance@gmail.com',
-  emailHref: 'mailto:zonyxautoinsurance@gmail.com',
-  office: '123 Premium Way, London, UK',
+  email: 'info@zonyxautoinsurance.com',
+  emailHref: 'mailto:info@zonyxautoinsurance.com',
+  office: '130 City Road, Cardiff, UK',
   hours: 'Mon–Fri 9am–7pm · Sat 9am–2pm',
 };
 
