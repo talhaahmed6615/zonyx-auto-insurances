@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 
 const PrivacyPolicy = () => {
   return (
     <>
+      <Helmet>
+        <title>Privacy Policy | Zonyx Auto Insurance</title>
+        <meta name="description" content="How Zonyx Auto Insurance collects, uses and protects your personal data when you request a quote or contact us." />
+      </Helmet>
       <PageHero
         eyebrow="Legal"
         title="Privacy policy"

@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 
 const CookiePolicy = () => {
   return (
     <>
+      <Helmet>
+        <title>Cookie Policy | Zonyx Auto Insurance</title>
+        <meta name="description" content="How Zonyx Auto Insurance uses cookies on this website, and how to manage your cookie preferences." />
+      </Helmet>
       <PageHero
         eyebrow="Legal"
         title="Cookie policy"

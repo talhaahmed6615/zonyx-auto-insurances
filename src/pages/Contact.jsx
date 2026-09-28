@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 import { CONTACT } from '../siteConfig';
 
 const Contact = () => (
   <>
+    <Helmet>
+      <title>Contact Zonyx Auto Insurance | Get a Callback Today</title>
+      <meta name="description" content="Call +44 7932 578446 or email info@zonyxautoinsurance.com. A specialist responds the same working day. Mon–Fri 9am–7pm, Sat 9am–2pm." />
+    </Helmet>
     <PageHero
       eyebrow="Get in touch"
       title="Contact us"

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 import WorkProcess from '../components/WorkProcess';
 import TrustBar from '../components/TrustBar';
@@ -22,6 +23,10 @@ const VALUES = [
 
 const About = () => (
   <>
+    <Helmet>
+      <title>About Zonyx | Motor Insurance Specialists, Not a Comparison Site</title>
+      <meta name="description" content="Zonyx is a UK motor insurance broker helping drivers comparison sites struggle to price — couriers, private hire, provisional licences and claims history." />
+    </Helmet>
     <PageHero
       eyebrow="About us"
       title="Motor insurance specialists, not a comparison table"

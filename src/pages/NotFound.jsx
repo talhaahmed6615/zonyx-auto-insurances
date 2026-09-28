@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 
 const NotFound = () => (
   <>
+    <Helmet>
+      <title>Page Not Found | Zonyx Auto Insurance</title>
+      <meta name="description" content="The Zonyx Auto Insurance page you requested could not be found." />
+    </Helmet>
     <PageHero
       eyebrow="Error 404"
       title="We could not find that page"
