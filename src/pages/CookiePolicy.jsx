@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 
 const CookiePolicy = () => {
   return (
     <>
+      <Helmet>
+        <title>Cookie Policy | Zonyx Auto Insurance</title>
+        <meta name="description" content="How Zonyx Auto Insurance uses cookies on this website, and how to manage your cookie preferences." />
+      </Helmet>
       <PageHero
         eyebrow="Legal"
         title="Cookie policy"
@@ -48,7 +53,7 @@ const CookiePolicy = () => {
           <p>Session cookies are deleted when you close your browser. Persistent cookies remain on your device until they expire or you delete them manually.</p>
 
           <h3>Contact Us</h3>
-          <p>If you have any questions about our cookie policy, please contact us at zonyxautoinsurance@gmail.com or call +44 7932 578446.</p>
+          <p>If you have any questions about our cookie policy, please contact us at info@zonyxautoinsurance.com or call +44 7932 578446.</p>
           </div>
         </div>
       </div>

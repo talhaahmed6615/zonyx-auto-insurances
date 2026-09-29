@@ -3,7 +3,7 @@ import { Car, Bike, Truck, ArrowRight, ArrowLeft, CheckCircle2, AlertCircle } fr
 import './QuoteForm.css';
 
 const TOTAL_STEPS = 7;
-const ENDPOINT = 'https://formsubmit.co/ajax/zonyxautoinsurance@gmail.com';
+const ENDPOINT = 'https://formsubmit.co/ajax/info@zonyxautoinsurance.com';
 
 const INITIAL_FORM = {
   vehicleType: '',
@@ -555,7 +555,7 @@ const QuoteForm = ({ startVehicle = null }) => {
             <p className="status-msg error" role="alert">
               <AlertCircle size={18} aria-hidden="true" />
               Something went wrong sending your request. Please try again, or email
-              zonyxautoinsurance@gmail.com.
+              info@zonyxautoinsurance.com.
             </p>
           )}
         </div>

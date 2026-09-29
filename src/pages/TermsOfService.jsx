@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet-async';
 import PageHero from './PageHero';
 
 const TermsOfService = () => {
   return (
     <>
+      <Helmet>
+        <title>Terms of Service | Zonyx Auto Insurance</title>
+        <meta name="description" content="The terms and conditions that apply when you use the Zonyx Auto Insurance website and request a quote." />
+      </Helmet>
       <PageHero
         eyebrow="Legal"
         title="Terms of service"

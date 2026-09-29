@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
 import Categories from '../components/Categories';
@@ -21,6 +22,10 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Zonyx Auto Insurance | Car, Bike &amp; Van Cover</title>
+        <meta name="description" content="Comprehensive car, bike and van insurance for UK drivers. Compare cover levels, add the extras you need, and get a tailored quote in minutes." />
+      </Helmet>
       <Hero onStartQuote={handleStartQuote} />
       <TrustBar />
       <Categories />
