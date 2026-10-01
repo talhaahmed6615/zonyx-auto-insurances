@@ -1,86 +1,37 @@
 /* Zonyx lockup. Everything scales off --logo-size.
-   Two variants: default sits on light surfaces, `on-dark` on navy. */
+   The logo image contains the full brand (shield + wordmark).
+   Two modes: --full shows the entire lockup, --mark-only clips to just the shield. */
 
 .zonyx-logo {
   display: inline-flex;
   align-items: center;
-  gap: calc(var(--logo-size, 40px) * 0.3);
   min-width: 0;
   line-height: 1;
 }
 
-.zonyx-logo__mark {
-  flex-shrink: 0;
-  width: var(--logo-size, 40px);
+/* Full lockup — show the complete logo including wordmark text.
+   The image is 1:1 but the shield sits in the top ~55%, so we give extra
+   height to show everything. */
+.zonyx-logo--full {
   height: calc(var(--logo-size, 40px) * 1.25);
 }
 
-.zonyx-logo__mark svg {
-  width: 100%;
-  height: 100%;
+.zonyx-logo--full .zonyx-logo__img {
+  height: calc(var(--logo-size, 40px) * 1.25);
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
-.zonyx-logo__text {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
+/* Mark only — just the shield, no wordmark text */
+.zonyx-logo--mark-only {
+  height: var(--logo-size, 40px);
+  overflow: hidden;
 }
 
-/* Solid ink, not a gradient fill — reads as a real wordmark and stays
-   legible at every size. */
-.zonyx-logo__word {
-  font-family: var(--font-mark);
-  font-size: calc(var(--logo-size, 40px) * 0.62);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-indent: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--navy-900);
-}
-
-.zonyx-logo__tagline {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--logo-size, 40px) * 0.12);
-  margin-top: calc(var(--logo-size, 40px) * 0.145);
-  font-family: var(--font);
-  font-size: max(0.52rem, calc(var(--logo-size, 40px) * 0.16));
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-indent: 0.24em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--gold-700);
-}
-
-.zonyx-logo__rule {
-  flex: 1 1 auto;
-  min-width: calc(var(--logo-size, 40px) * 0.14);
-  height: 1px;
-  background: var(--gold-500);
-  opacity: 0.55;
-}
-
-/* On navy */
-.zonyx-logo--on-dark .zonyx-logo__word { color: #fff; }
-.zonyx-logo--on-dark .zonyx-logo__tagline { color: var(--gold-400); }
-.zonyx-logo--on-dark .zonyx-logo__rule { background: var(--gold-400); }
-
-@media (max-width: 420px) {
-  .zonyx-logo {
-    gap: calc(var(--logo-size, 40px) * 0.24);
-  }
-
-  .zonyx-logo__word {
-    font-size: calc(var(--logo-size, 40px) * 0.56);
-    letter-spacing: 0.05em;
-    text-indent: 0.05em;
-  }
-
-  .zonyx-logo__tagline {
-    letter-spacing: 0.16em;
-    text-indent: 0.16em;
-  }
+.zonyx-logo--mark-only .zonyx-logo__img {
+  height: var(--logo-size, 40px);
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
