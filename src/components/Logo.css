@@ -13,11 +13,11 @@
    The image is 1:1 but the shield sits in the top ~55%, so we give extra
    height to show everything. */
 .zonyx-logo--full {
-  height: calc(var(--logo-size, 40px) * 1.25);
+  height: var(--logo-size, 40px);
 }
 
 .zonyx-logo--full .zonyx-logo__img {
-  height: calc(var(--logo-size, 40px) * 1.25);
+  height: var(--logo-size, 40px);
   width: auto;
   object-fit: contain;
   display: block;
