@@ -60,7 +60,7 @@ const Header = () => {
     <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="site-header__inner container-wide">
         <Link to="/" className="site-header__logo" aria-label="Zonyx Auto Insurance — home">
-          <Logo size={60} />
+          <Logo size={120} />
         </Link>
 
         <nav
