@@ -39,7 +39,7 @@ const Footer = () => {
       <div className="container site-footer__top">
         <div className="site-footer__brand">
           <Link to="/" aria-label="Zonyx Auto Insurance — home">
-            <Logo size={36} onDark />
+            <Logo size={56} onDark />
           </Link>
           <p className="site-footer__blurb">
             Motor insurance specialists for UK drivers, from social use and
