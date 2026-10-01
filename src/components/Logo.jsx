@@ -12,14 +12,14 @@ import './Logo.css';
  *                just the shield mark cropped from the image
  *  - `onDark`    kept for API compatibility (image works on both backgrounds)
  */
-const Logo = ({ className = '', size = 40, showText = true, onDark = false }) => {
+const Logo = ({ className = '', size = 40, showText = true, onDark = false, isNavbar = false }) => {
   return (
     <div
       className={`zonyx-logo ${showText ? 'zonyx-logo--full' : 'zonyx-logo--mark-only'} ${onDark ? 'zonyx-logo--on-dark' : ''} ${className}`}
       style={{ '--logo-size': `${size}px` }}
     >
       <img
-        src="/images/zonyx-logo.png"
+        src={isNavbar ? "/images/zonyx-logo-transparent.png" : "/images/zonyx-logo.png"}
         alt="Zonyx Auto Insurance"
         className="zonyx-logo__img"
       />
