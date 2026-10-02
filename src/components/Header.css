@@ -26,6 +26,7 @@
 
 .site-header__logo {
   flex-shrink: 0;
+  padding-block: 8px;
   position: relative;
   z-index: 120;
 }
